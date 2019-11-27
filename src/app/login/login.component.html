@@ -1,0 +1,18 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Login form</p>
+  <div class="level">
+    <div class="level-item">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <input ngModel type="text" name="email" id="email" required class="input">
+        </div>
+        <div class="field">
+          <label for="password" class="label">Password</label>
+          <input ngModel type="password" name="password" id="password" required class="input">
+        </div>
+        <button type="submit" [disabled]="!loginForm.form.valid" class="button is-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

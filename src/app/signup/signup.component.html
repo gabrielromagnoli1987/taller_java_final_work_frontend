@@ -1,0 +1,45 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Sign up form</p>
+  <div class="level">
+    <div class="level-item">
+      <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+        <div class="field">
+          <label for="name" class="label">Name</label>
+          <input ngModel type="text" name="name" id="name" required class="input">
+        </div>
+        <div class="field">
+          <label for="lastName" class="label">LastName</label>
+          <input ngModel type="text" name="lastName" id="lastName" required class="input">
+        </div>
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <input ngModel type="text" name="email" id="email" required class="input">
+        </div>
+        <div class="field">
+          <label for="phone" class="label">Phone</label>
+          <input ngModel type="text" name="phone" id="phone" required class="input">
+        </div>
+        <div class="field">
+          <label for="password" class="label">Password</label>
+          <input ngModel type="password" name="password" id="password" required class="input">
+        </div>
+        <div class="field">
+          <label class="label">Is vet?</label>
+          <input [(ngModel)]="isVet" type="radio" name="isVet" id="isVetTrue" [value]=true required>True
+          <input [(ngModel)]="isVet" type="radio" name="isVet" id="isVetFalse" [value]=false required>False
+        </div>
+        <div *ngIf="isVet" class="field">
+          <div class="field">
+            <label for="resume" class="label">Resume</label>
+            <input ngModel type="text" name="resume" id="resume" required class="input">
+          </div>
+          <div class="field">
+            <label for="address" class="label">Address</label>
+            <input ngModel type="text" name="address" id="address" required class="input">
+          </div>
+        </div>
+        <button type="submit" [disabled]="!signupForm.form.valid" class="button is-primary">Sign up</button>
+      </form>
+    </div>
+  </div>
+</div>
