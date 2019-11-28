@@ -1,13 +1,13 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a routerLink="/" class="navbar-item"><img src="assets/petclinic_logo.png"></a>
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <div class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
-    </a>
+    </div>
   </div>
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbar-menu" class="navbar-menu">
     <div class="navbar-start">
       <a routerLink="/" class="navbar-item">Home</a>
       <a class="navbar-item">Documentation</a>
@@ -17,11 +17,11 @@
           <a class="navbar-item">About</a>
           <a class="navbar-item">Contact</a>
           <hr class="navbar-divider">
-          <a href="https://github.com/gabrielromagnoli1987/taller_java_final_work_frontend/issues/new" target="_blank" class="navbar-item">Report an issue</a>
+          <a href="https://github.com/gabrielromagnoli1987/taller_java_final_work_frontend/issues/new" target="_blank" class="navbar-item">
+            Report an issue<i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
-      <a href="" class="nav-item"><span class="icon"><i class="fa fa-github"></i></span></a>
-      <a href="" class="nav-item"><span class="icon"><i class="fa fa-twitter"></i></span></a>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -40,8 +40,7 @@
   <div class="content has-text-centered">
     <img src="assets/pets.jpg" width="480">
     <p>
-      <strong>Pet Clinic</strong> by <a href="https://www.linkedin.com/in/gabrielromagnoli" target="_blank">Gabriel Romagnoli</a>. The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
+      <strong>Pet Clinic</strong> by <a href="https://www.linkedin.com/in/gabrielromagnoli" target="_blank">Gabriel Romagnoli</a>.
     </p>
   </div>
 </footer>

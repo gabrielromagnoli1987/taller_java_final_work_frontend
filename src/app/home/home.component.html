@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th title="Pet Image">Pet Image</th>
+      <th title="Pet Name">Pet Name</th>
+      <th title="Pet Age (years)">Pet Age</th>
+      <th title="Owner Name">Owner Name</th>
+      <th title="Owner Lastname">Owner Lastname</th>
+      <th title="Owner Email">Owner Email</th>
+      <th title="Owner Phone">Owner Phone</th>
+      <th title="Vet Name">Vet Name</th>
+      <th title="Vet Lastname">Vet Lastname</th>
+      <th title="Vet Email">Vet Email</th>
+      <th title="Vet Phone">Vet Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publicRecord of publicRecords">
+      <td><img src="{{ imagesHost }}{{ publicRecord.petImageLink }}" alt="pet image" class="petImage"></td>
+      <td><a [routerLink]="[ '/pet', publicRecord.petId ]">{{ publicRecord.petName }}</a></td>
+      <td>{{ publicRecord.petAge }}</td>
+      <td><a [routerLink]="[ '/user', publicRecord.ownerId ]">{{ publicRecord.ownerName }}</a></td>
+      <td>{{ publicRecord.ownerLastName }}</td>
+      <td>{{ publicRecord.ownerEmail }}</td>
+      <td>{{ publicRecord.ownerPhone }}</td>
+      <td><a [routerLink]="[ '/user', publicRecord.vetId ]">{{ publicRecord.vetName }}</a></td>
+      <td>{{ publicRecord.vetLastName }}</td>
+      <td>{{ publicRecord.vetEmail }}</td>
+      <td>{{ publicRecord.vetPhone }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td>First Page</td>
+      <td>Previous Page</td>
+      <td *ngIf="pageablePublicRecords?.numberOfElements === pageablePublicRecords?.size">Next Page</td>
+      <td>Last Page</td>
+    </tr>
+  </tfoot>
+</table>

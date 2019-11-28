@@ -5,16 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { SignupService } from './signup/signup.service';
-
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     SignupComponent
   ],
@@ -25,6 +27,7 @@ import { SignupService } from './signup/signup.service';
     HttpClientModule
   ],
   providers: [
+    HomeService,
     LoginService,
     SignupService
   ],
