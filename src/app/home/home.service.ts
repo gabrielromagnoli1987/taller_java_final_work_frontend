@@ -15,8 +15,4 @@ export class HomeService {
     return this.httpClient.get<PageablePublicRecords>(environment.api + `/public-records?page=${page}&size=${size}`);
   }
 
-  /* getPublicRecords(page: Number, size?: Number): Observable<Object> {
-    return this.httpClient.get(environment.api + `/public-records?page=${page}&size=${size}`);
-  } */
-
 }

@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserDetailsService {
+
+  constructor(private httpClient: HttpClient) { }
+
+  getUserDetails(id: Number): Observable<Object> {
+    return this.httpClient.get<Object>(environment.api + `/users/${id}`);
+  }
+
+  getUserDetailsByEmail(email: String): Observable<Object> {
+    return this.httpClient.get<Object>(environment.api + `/users/search/findByEmail?email=${email}`);
+  }
+
+}
