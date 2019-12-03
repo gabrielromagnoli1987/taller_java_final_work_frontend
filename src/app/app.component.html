@@ -26,8 +26,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a routerLink="/sign-up" class="button is-primary">Sign up</a>
-          <a routerLink="/login" class="button is-primary">Login</a>
+          <div *ngIf="!isLogged()">
+            <a routerLink="/sign-up" class="button is-primary">Sign up</a>
+            <a routerLink="/login" class="button is-primary">Login</a>
+          </div>
+          <div *ngIf="isLogged()">
+            <a (click)="goToMyProfile()" class="button is-primary">My Profile</a>
+            <a href="#" (click)="logout()" class="button is-primary">Logout</a>
+          </div>
         </div>
       </div>
     </div>

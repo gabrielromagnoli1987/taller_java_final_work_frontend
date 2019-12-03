@@ -13,7 +13,6 @@ import { Token } from '../models/token';
 })
 export class LoginService {
 
-  private token: Object;
   private currentUserSubject: BehaviorSubject<Token>;
   public currentUser: Observable<Token>;
 
@@ -24,6 +23,14 @@ export class LoginService {
 
   public get currentUserValue(): Token {
     return this.currentUserSubject.value;
+  }
+
+  isLogged() {
+    if (this.currentUserSubject.value && this.currentUserSubject.value.token) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   login(loginRequestData: LoginRequestData) {

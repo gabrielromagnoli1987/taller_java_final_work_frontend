@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   error = '';
 
   constructor(private loginService: LoginService, private route: ActivatedRoute, private router: Router) {
-    // redirect to home if already logged in
+    // redirect to user details page if already logged in
     let token: Token = this.loginService.currentUserValue;
     if (token) {
       let decoded_token = jwt_decode(token["token"]);
