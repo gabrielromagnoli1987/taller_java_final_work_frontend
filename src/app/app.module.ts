@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { UserDetailsComponent } from './userdetails/userdetails.component';
+import { PetDetailsComponent } from './pet-details/pet-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserDetailsComponent } from './userdetails/userdetails.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    PetDetailsComponent
   ],
   imports: [
     BrowserModule,

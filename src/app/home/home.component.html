@@ -17,7 +17,7 @@
   <tbody>
     <tr *ngFor="let publicRecord of publicRecords">
       <td><img src="{{ imagesHost }}{{ publicRecord.petImageLink }}" alt="pet image" class="petImage"></td>
-      <td><a [routerLink]="[ '/pet', publicRecord.petId ]">{{ publicRecord.petName }}</a></td>
+      <td><a [routerLink]="[ '/pets', publicRecord.petId ]">{{ publicRecord.petName }}</a></td>
       <td>{{ publicRecord.petAge }}</td>
       <td><a [routerLink]="[ '/user', publicRecord.ownerId ]">{{ publicRecord.ownerName }}</a></td>
       <td>{{ publicRecord.ownerLastName }}</td>

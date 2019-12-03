@@ -51,7 +51,7 @@
     <tbody>
       <tr *ngFor="let pet of pets">
         <td><img src="{{ imagesHost }}{{ pet.images[0].path }}" alt="pet image" class="petImage"></td>
-        <td><a [routerLink]="[ '/pet', pet.id ]">{{ pet.petName }}</a></td>
+        <td><a [routerLink]="[ '/pets', pet.id ]">{{ pet.name }}</a></td>
         <td>{{ pet.bornDate }}</td>
         <td>{{ pet.species }}</td>
         <td>{{ pet.race }}</td>
