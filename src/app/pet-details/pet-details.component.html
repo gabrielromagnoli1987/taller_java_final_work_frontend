@@ -1,3 +1,164 @@
-<p>pet-details works!</p>
+<p class="title is-4 has-text-centered">Pet Details</p>
 
-{{ pet | json }}
+<div *ngIf="pet">
+
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+      <div class="card">
+        <div class="card-image">
+            <!-- Start Carousel -->
+            <figure class="is-4by3 hero is-large has-carousel">
+              <div id="carousel-pet-images" class="hero-carousel">
+                <div *ngFor="let image of pet.images; let i = index" [ngClass]="'item-'+i">
+                  <img src="{{ imagesHost }}{{ image.path }}" alt="pet image">
+                </div>
+              </div>
+              <div class="hero-head"></div>
+              <div class="hero-body"></div>
+              <div class="hero-foot"></div>
+            </figure>
+            <!-- End Carousel -->
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="{{ imagesHost }}{{ pet.images[0].path }}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-5">Name: {{ pet.name }}</p>
+              <p class="subtitle is-6">Born date: {{ pet.bornDate }}</p>
+            </div>
+          </div>
+          <div class="content">
+            <div>
+              <label for="species">Species:</label><span id="species"> {{ pet.species }}</span><br>
+            </div>
+            <div>
+              <label for="race">Race:</label><span id="race"> {{ pet.race }}</span><br>
+            </div>
+            <div>
+              <label for="sex">Sex:</label><span id="sex"> {{ pet.sex }}</span><br>
+            </div>
+            <div>
+              <label for="color">Color:</label><span id="color"> {{ pet.color }}</span><br>
+            </div>
+            <div>
+              <label for="observations">Observations:</label><span id="observations"> {{ pet.observations }}</span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+      <p class="title is-5 has-text-centered">Vaccines</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Description">Description</th>
+            <th title="Datetime">Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vaccine of pet.vaccines">
+            <td>{{ vaccine.description }}</td>
+            <td>{{ vaccine.localDateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="title is-5 has-text-centered">Surgeries</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Description">Description</th>
+            <th title="Datetime">Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let surgerie of pet.surgeries">
+            <td>{{ surgerie.description }}</td>
+            <td>{{ surgerie.localDateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="title is-5 has-text-centered">Diseases</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Description">Description</th>
+            <th title="Datetime">Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let disease of pet.diseases">
+            <td>{{ disease.description }}</td>
+            <td>{{ disease.localDateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="title is-5 has-text-centered">Reproductive History</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Number of puppies">Number of puppies</th>
+            <th title="Datetime">Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of pet.reproductiveHistory">
+            <td>{{ record.numberOfpuppies }}</td>
+            <td>{{ record.localDateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="title is-5 has-text-centered">Deworming</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Drug">Drug</th>
+            <th title="Result">Result</th>
+            <th title="Datetime">Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let deworm of pet.deworming">
+            <td>{{ deworm.drug }}</td>
+            <td>{{ deworm.result }}</td>
+            <td>{{ deworm.localDateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="title is-5 has-text-centered">Visits</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="Datetime">Datetime</th>
+            <th title="Reason">Reason</th>
+            <th title="Diagnosis">Diagnosis</th>
+            <th title="Indications">Indications</th>
+            <th title="Weight">Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let visit of pet.visits">
+            <td>{{ visit.localDateTime }}</td>
+            <td>{{ visit.reason }}</td>
+            <td>{{ visit.diagnosis }}</td>
+            <td>{{ visit.indications }}</td>
+            <td>{{ visit.weight }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

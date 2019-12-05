@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @charset "utf-8";
 
+@import 'node_modules/bulma/bulma.sass';
+@import 'node_modules/bulma-carousel/src/sass/index.sass';
+
 html {
   height:100%;
 }

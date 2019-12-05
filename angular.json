@@ -28,10 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bulma/css/bulma.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bulma-carousel/dist/js/bulma-carousel.min.js"
+            ]
           },
           "configurations": {
             "production": {
