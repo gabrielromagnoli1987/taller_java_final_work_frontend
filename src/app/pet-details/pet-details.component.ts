@@ -14,9 +14,9 @@ import bulmaCarousel from 'node_modules/bulma-carousel/dist/js/bulma-carousel.mi
 })
 export class PetDetailsComponent implements OnInit {
 
-  private pet;
-  private imagesHost = environment.imagesHost;
-  private carousels;
+  pet;
+  imagesHost = environment.imagesHost;
+  carousels;
 
   constructor(private petService: PetService, private route: ActivatedRoute) {
   }

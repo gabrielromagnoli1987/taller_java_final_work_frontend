@@ -1,60 +1,62 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th title="Pet Image">Pet Image</th>
-      <th title="Pet Name">Pet Name</th>
-      <th title="Pet Age (years)">Pet Age</th>
-      <th title="Owner Name">Owner Name</th>
-      <th title="Owner Lastname">Owner Lastname</th>
-      <th title="Owner Email">Owner Email</th>
-      <th title="Owner Phone">Owner Phone</th>
-      <th title="Vet Name">Vet Name</th>
-      <th title="Vet Lastname">Vet Lastname</th>
-      <th title="Vet Email">Vet Email</th>
-      <th title="Vet Phone">Vet Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let publicRecord of publicRecords">
-      <td><img src="{{ imagesHost }}{{ publicRecord.petImageLink }}" alt="pet image" class="petImage"></td>
-      <td><a [routerLink]="[ '/pets', publicRecord.petId ]">{{ publicRecord.petName }}</a></td>
-      <td>{{ publicRecord.petAge }}</td>
-      <td><a [routerLink]="[ '/user', publicRecord.ownerId ]">{{ publicRecord.ownerName }}</a></td>
-      <td>{{ publicRecord.ownerLastName }}</td>
-      <td>{{ publicRecord.ownerEmail }}</td>
-      <td>{{ publicRecord.ownerPhone }}</td>
-      <td><a [routerLink]="[ '/user', publicRecord.vetId ]">{{ publicRecord.vetName }}</a></td>
-      <td>{{ publicRecord.vetLastName }}</td>
-      <td>{{ publicRecord.vetEmail }}</td>
-      <td>{{ publicRecord.vetPhone }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="pageablePublicRecords">
+  <table class="table">
+    <thead>
+      <tr>
+        <th title="Pet Image">Pet Image</th>
+        <th title="Pet Name">Pet Name</th>
+        <th title="Pet Age (years)">Pet Age</th>
+        <th title="Owner Name">Owner Name</th>
+        <th title="Owner Lastname">Owner Lastname</th>
+        <th title="Owner Email">Owner Email</th>
+        <th title="Owner Phone">Owner Phone</th>
+        <th title="Vet Name">Vet Name</th>
+        <th title="Vet Lastname">Vet Lastname</th>
+        <th title="Vet Email">Vet Email</th>
+        <th title="Vet Phone">Vet Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let publicRecord of pageablePublicRecords.content">
+        <td><img src="{{ imagesHost }}{{ publicRecord.petImageLink }}" alt="pet image" class="petImage"></td>
+        <td><a [routerLink]="[ '/pets', publicRecord.petId ]">{{ publicRecord.petName }}</a></td>
+        <td>{{ publicRecord.petAge }}</td>
+        <td><a [routerLink]="[ '/users', publicRecord.ownerId ]">{{ publicRecord.ownerName }}</a></td>
+        <td>{{ publicRecord.ownerLastName }}</td>
+        <td>{{ publicRecord.ownerEmail }}</td>
+        <td>{{ publicRecord.ownerPhone }}</td>
+        <td><a [routerLink]="[ '/users', publicRecord.vetId ]">{{ publicRecord.vetName }}</a></td>
+        <td>{{ publicRecord.vetLastName }}</td>
+        <td>{{ publicRecord.vetEmail }}</td>
+        <td>{{ publicRecord.vetPhone }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-<nav class="pagination" role="navigation" aria-label="pagination">
-  <a class="pagination-previous">Previous</a>
-  <a class="pagination-next">Next page</a>
-  <ul class="pagination-list">
-    <li>
-      <a class="pagination-link" aria-label="Goto page 1">1</a>
-    </li>
-    <li>
-      <span class="pagination-ellipsis">&hellip;</span>
-    </li>
-    <li>
-      <a class="pagination-link" aria-label="Goto page 45">45</a>
-    </li>
-    <li>
-      <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
-    </li>
-    <li>
-      <a class="pagination-link" aria-label="Goto page 47">47</a>
-    </li>
-    <li>
-      <span class="pagination-ellipsis">&hellip;</span>
-    </li>
-    <li>
-      <a class="pagination-link" aria-label="Goto page 86">86</a>
-    </li>
-  </ul>
-</nav>
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous">Previous</a>
+    <a class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li>
+        <a class="pagination-link" aria-label="Goto page 1">1</a>
+      </li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 45">45</a>
+      </li>
+      <li>
+        <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 47">47</a>
+      </li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 86">86</a>
+      </li>
+    </ul>
+  </nav>
+</div>

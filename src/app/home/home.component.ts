@@ -14,16 +14,14 @@ import { PageablePublicRecords } from './pageable-public-records';
 })
 export class HomeComponent implements OnInit {
 
-  private pageablePublicRecords: PageablePublicRecords;
-  private publicRecords: any[];
-  private imagesHost = environment.imagesHost;
+  pageablePublicRecords: PageablePublicRecords;
+  imagesHost = environment.imagesHost;
 
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
     this.homeService.getPublicRecords(0).subscribe(data => {
       this.pageablePublicRecords = data;
-      this.publicRecords = this.pageablePublicRecords['content'];
     });
   }
 

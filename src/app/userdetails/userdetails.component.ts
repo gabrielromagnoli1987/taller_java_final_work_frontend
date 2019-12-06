@@ -13,9 +13,8 @@ import { UserDetailsService } from './userdetails.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  private userDetails;
-  private pets: [];
-  private imagesHost = environment.imagesHost;
+  userDetails;
+  imagesHost = environment.imagesHost;
 
   constructor(private userDetailsService: UserDetailsService, private route: ActivatedRoute) { }
 
@@ -25,7 +24,12 @@ export class UserDetailsComponent implements OnInit {
       //this.userDetails = this.userDetailsService.getUserDetailsByEmail(email).pipe(share());
       this.userDetailsService.getUserDetailsByEmail(email).subscribe(data => {
         this.userDetails = data;
-        this.pets = this.userDetails['ownersPets'];
+      });
+    }
+    const userId = this.route.snapshot.params['id'] || '';
+    if (userId) {
+      this.userDetailsService.getUserDetails(userId).subscribe(data => {
+        this.userDetails = data;
       });
     }
   }

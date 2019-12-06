@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <p class="title is-4 has-text-centered">My Pets</p>
+  <p class="title is-4 has-text-centered">User's Pets</p>
 
   <table class="table">
     <thead>
@@ -49,7 +49,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pet of pets">
+      <tr *ngFor="let pet of userDetails.ownersPets">
         <td><img src="{{ imagesHost }}{{ pet.images[0].path }}" alt="pet image" class="petImage"></td>
         <td><a [routerLink]="[ '/pets', pet.id ]">{{ pet.name }}</a></td>
         <td>{{ pet.bornDate }}</td>
