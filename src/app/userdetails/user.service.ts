@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UserDetailsService {
+export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,6 +16,10 @@ export class UserDetailsService {
 
   getUserDetailsByEmail(email: String): Observable<Object> {
     return this.httpClient.get<Object>(environment.api + `/users/search/findByEmail?email=${email}`);
+  }
+
+  getActiveVets() {
+    return this.httpClient.get<[]>(environment.api + '/users/vets-active');
   }
 
 }

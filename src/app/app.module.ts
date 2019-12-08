@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { UserDetailsComponent } from './userdetails/userdetails.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { PetCreateComponent } from './pet-create/pet-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
     LoginComponent,
     SignupComponent,
     UserDetailsComponent,
-    PetDetailsComponent
+    PetDetailsComponent,
+    PetCreateComponent
   ],
   imports: [
     BrowserModule,

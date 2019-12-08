@@ -1,0 +1,74 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Create pet form</p>
+  <div class="level">
+    <div class="level-item">
+      <form #createPetForm="ngForm" (ngSubmit)="onSubmit(createPetForm)">
+        <div class="field">
+          <label for="name" class="label">Name</label>
+          <input ngModel type="text" name="name" id="name" required class="input">
+        </div>
+        <div class="field">
+          <label for="borndate" class="label">Borndate</label>
+          <input ngModel type="date" name="borndate" id="borndate" required class="input">
+        </div>
+        <div class="field">
+          <label for="species" class="label">Species</label>
+          <input ngModel type="text" name="species" id="species" required class="input">
+        </div>
+        <div class="field">
+          <label for="race" class="label">Race</label>
+          <input ngModel type="text" name="race" id="race" required class="input">
+        </div>
+        <div class="field">
+          <label for="sex" class="label">Sex</label>
+          <div class="select" id="sex">
+            <select ngModel name="sex" required>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+            <label for="color" class="label">Color</label>
+            <input ngModel type="text" name="color" id="color" required class="input">
+          </div>
+        <div class="field">
+          <label for="observations" class="label">Observations</label>
+          <input ngModel type="text" name="observations" id="observations" required class="input">
+        </div>
+        <div class="field">
+          <label for="vet" class="label">Select the Vet</label>
+          <div class="select" id="vet">
+            <select *ngIf="pageableVets" ngModel name="vet" required>
+              <option *ngFor="let vet of pageableVets.content" [value]="vet.id">
+                {{vet.firstName}} {{vet.lastName}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="field">
+          <div class="file has-name is-info" id="images">
+            <label class="file-label">
+              <input [(ngModel)]="fileNames" type="file" name="images" multiple="multiple" accept="image/*" class="file-input" (change)="prepareImage($event)">
+              <span class="file-cta">
+                <span class="file-icon"><i class="fas fa-upload"></i></span>
+                <span class="file-label">Select the images</span>
+              </span>
+              <span class="file-name">
+                {{ fileNames }}
+              </span>
+            </label>
+          </div>
+        </div> -->
+
+        <div class="field">
+          <label for="vet" class="label">Select the images</label>
+          <input ngModel type="file" name="images" accept="image/*" class="input" (change)="prepareImage($event)">
+        </div>
+
+        <button type="submit" [disabled]="!createPetForm.form.valid" class="button is-primary">Create Pet</button>
+      </form>
+    </div>
+  </div>
+</div>

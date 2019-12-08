@@ -28,10 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/animate.css/animate.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/bulma-carousel/dist/js/bulma-carousel.min.js"
+              "node_modules/bulma-carousel/dist/js/bulma-carousel.min.js",
+              "node_modules/bulma-toast/dist/bulma-toast.min.js"
             ]
           },
           "configurations": {
