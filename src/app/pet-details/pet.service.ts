@@ -16,12 +16,12 @@ export class PetService {
     return this.httpClient.get(environment.api + `/pets/${id}`);
   }
 
-  createPet(petRequestData: PetRequestData, fileToUpload: File) {
-
+  createPet(petRequestData: PetRequestData, filesToUpload: FileList) {
     let formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
+    for (let i=0; i<=filesToUpload.length-1; i++ ) {
+      formData.append('file', filesToUpload[i], filesToUpload[i].name);
+    }
     formData.append('petDTO', new Blob([JSON.stringify(petRequestData)], {type: "application/json"}));
-
     return this.httpClient.post(environment.api + '/pets', formData);
   }
 }

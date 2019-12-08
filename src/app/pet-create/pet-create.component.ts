@@ -15,7 +15,7 @@ import { UserService } from '../userdetails/user.service';
 export class PetCreateComponent implements OnInit {
 
   pageableVets;
-  fileToUpload: File = null;
+  filesToUpload: FileList = null;
 
   constructor(private petService: PetService, private userService: UserService) { }
 
@@ -29,7 +29,7 @@ export class PetCreateComponent implements OnInit {
     if (form.valid) {
       let fv = form.value;
       let petRequestData = new PetRequestData(fv.name, fv.borndate, fv.species, fv.race, fv.sex, fv.color, fv.observations, fv.vet);
-      this.petService.createPet(petRequestData, this.fileToUpload).subscribe(response => {
+      this.petService.createPet(petRequestData, this.filesToUpload).subscribe(response => {
         console.log(response);
         toast({
           message: "Pet created successfully",
@@ -44,7 +44,7 @@ export class PetCreateComponent implements OnInit {
   }
 
   prepareImage(event) {
-    this.fileToUpload = event.target.files[0];
+    this.filesToUpload = event.target.files;
   }
 
 }
