@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as jwt_decode from 'jwt-decode';
 
 import { environment } from './../../environments/environment';
 import { LoginRequestData } from './login-request-data';
@@ -47,4 +48,23 @@ export class LoginService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+  getRole(): string {
+    let token: Token = this.currentUserValue;
+    if (token) {
+      let decoded_token = jwt_decode(token["token"]);
+      return decoded_token['scopes'][0]['authority'];
+    }
+  }
+
+  isOwner(): boolean {
+    let role = this.getRole()
+    return (role === "ROLE_OWNER_USER");
+  }
+
+  isVet(): boolean {
+    let role = this.getRole()
+    return (role === "ROLE_VET_USER");
+  }
+
 }

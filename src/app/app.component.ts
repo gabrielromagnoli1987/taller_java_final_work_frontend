@@ -13,7 +13,6 @@ import { Token } from './models/token';
 })
 export class AppComponent {
   title = 'petclinic-frontend';
-  email: string;
 
   constructor (private loginService: LoginService, private router: Router) {}
 
@@ -33,4 +32,13 @@ export class AppComponent {
       this.router.navigate(['/users/search/findByEmail'], { queryParams: { email: email } });
     }
   }
-}
+
+  isOwner(): boolean {
+    return this.loginService.isOwner();
+  }
+
+  isVet(): boolean {
+    return this.loginService.isVet();
+  }
+
+ }

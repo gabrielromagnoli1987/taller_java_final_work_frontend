@@ -60,21 +60,9 @@
               </p>
             </div>
           </div>
-          <div class="content">
-            <div class="level">
-              <div class="level-left">
-                <div *ngIf="userDetails.userConfig.showPhone">
-                  <label for="phone">Phone:</label><span id="phone"> {{ userDetails.phone }}</span><br>
-                </div>
-                <div *ngIf="userDetails.isVetEnabled">
-                  <label for="address">Address:</label><span id="address"> {{ userDetails.address }}</span><br>
-                </div>
-                <div *ngIf="userDetails.isVetEnabled">
-                  <label for="resume">Resume:</label><span id="resume"> {{ userDetails.resume }}</span><br>
-                </div>
-              </div>
-              <a routerLink="/user-config" [state]="{ userId: userDetails.id, userConfig: userDetails.userConfig }" class="button is-primary level-right">Edit</a>
-            </div>
+          <div class="level">
+            <div class="level-left"></div>
+            <a routerLink="/user-config" [state]="{ userId: userDetails.id, userConfig: userDetails.userConfig }" class="button is-primary level-right">Edit</a>
           </div>
         </div>
       </div>
