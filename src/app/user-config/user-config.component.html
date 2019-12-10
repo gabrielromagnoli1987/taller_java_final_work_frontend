@@ -1,0 +1,25 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">User Privacy Config form</p>
+  <div class="level">
+    <div class="level-item">
+      <form #userConfigForm="ngForm" (ngSubmit)="onSubmit(userConfigForm)">
+        <div class="field">
+          <label class="label">Show LastName?</label>
+          <input [(ngModel)]="userConfig.showLastName" type="radio" name="showLastName" id="showLastNameTrue" [value]=true required>True
+          <input [(ngModel)]="userConfig.showLastName" type="radio" name="showLastName" id="showLastNameFalse" [value]=false required>False
+        </div>
+        <div class="field">
+          <label class="label">Show Email?</label>
+          <input [(ngModel)]="userConfig.showEmail" type="radio" name="showEmail" id="showEmailTrue" [value]=true required>True
+          <input [(ngModel)]="userConfig.showEmail" type="radio" name="showEmail" id="showEmailFalse" [value]=false required>False
+        </div>
+        <div class="field">
+          <label class="label">Show Phone?</label>
+          <input [(ngModel)]="userConfig.showPhone" type="radio" name="showPhone" id="showPhoneTrue" [value]=true required>True
+          <input [(ngModel)]="userConfig.showPhone" type="radio" name="showPhone" id="showPhoneFalse" [value]=false required>False
+        </div>
+        <button type="submit" [disabled]="!userConfigForm.form.valid" class="button is-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

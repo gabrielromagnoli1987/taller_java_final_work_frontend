@@ -22,4 +22,8 @@ export class UserService {
     return this.httpClient.get<[]>(environment.api + '/users/vets-active');
   }
 
+  updateUserConfig(userId, userConfig) {
+    return this.httpClient.put(environment.api + `/users/${userId}/update-config`, userConfig);
+  }
+
 }

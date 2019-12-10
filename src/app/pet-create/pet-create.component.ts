@@ -30,7 +30,6 @@ export class PetCreateComponent implements OnInit {
       let fv = form.value;
       let petRequestData = new PetRequestData(fv.name, fv.borndate, fv.species, fv.race, fv.sex, fv.color, fv.observations, fv.vet);
       this.petService.createPet(petRequestData, this.filesToUpload).subscribe(response => {
-        console.log(response);
         toast({
           message: "Pet created successfully",
           duration: 5000,
@@ -39,6 +38,7 @@ export class PetCreateComponent implements OnInit {
           dismissible: true,
           animate: { in: "fadeInLeftBig", out: "fadeOutRightBig" }
         });
+        form.reset();
       });
     }
   }

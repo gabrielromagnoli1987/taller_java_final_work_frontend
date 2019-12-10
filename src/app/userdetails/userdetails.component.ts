@@ -21,7 +21,6 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     const email = this.route.snapshot.queryParams['email'] || '';
     if (email) {
-      //this.userDetails = this.userDetailsService.getUserDetailsByEmail(email).pipe(share());
       this.userService.getUserDetailsByEmail(email).subscribe(data => {
         this.userDetails = data;
       });

@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-
-import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { UserDetailsComponent } from './userdetails/userdetails.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { PetCreateComponent } from './pet-create/pet-create.component';
+import { UserConfigComponent } from './user-config/user-config.component';
+
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
+import { ErrorInterceptor } from './interceptors/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PetCreateComponent } from './pet-create/pet-create.component';
     SignupComponent,
     UserDetailsComponent,
     PetDetailsComponent,
-    PetCreateComponent
+    PetCreateComponent,
+    UserConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { PetCreateComponent } from './pet-create/pet-create.component';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

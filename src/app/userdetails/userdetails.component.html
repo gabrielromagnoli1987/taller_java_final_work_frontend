@@ -13,8 +13,8 @@
               </figure>
             </div>
             <div class="media-content">
-              <p class="title is-4">{{ userDetails.firstName }} <span *ngIf="userDetails.userConfig.showLastName">{{ userDetails.lastName }}</span></p>
-              <p class="subtitle is-6"><span *ngIf="userDetails.userConfig.showEmail">{{ userDetails.email }}</span></p>
+              <p class="title is-4">Name: {{ userDetails.firstName }} <span *ngIf="userDetails.userConfig.showLastName">Lastname: {{ userDetails.lastName }}</span></p>
+              <p class="subtitle is-6"><span *ngIf="userDetails.userConfig.showEmail">Email: {{ userDetails.email }}</span></p>
             </div>
           </div>
           <div class="content">
@@ -26,6 +26,54 @@
             </div>
             <div *ngIf="userDetails.isVetEnabled">
               <label for="resume">Resume:</label><span id="resume"> {{ userDetails.resume }}</span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="title is-4 has-text-centered">User Configuration Details</p>
+
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="assets/eye.png" alt="eye image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="is-6">Show Lastname?
+                <span *ngIf="userDetails.userConfig.showLastName"><i class="fa fa-check"></i></span>
+                <span *ngIf="! userDetails.userConfig.showLastName"><i class="fa fa-times"></i></span>
+              </p>
+              <p class="is-6">Show Email?
+                <span *ngIf="userDetails.userConfig.showEmail"><i class="fa fa-check"></i></span>
+                <span *ngIf="! userDetails.userConfig.showEmail"><i class="fa fa-times"></i></span>
+              </p>
+              <p class="is-6">Show Phone?
+                <span *ngIf="userDetails.userConfig.showPhone"><i class="fa fa-check"></i></span>
+                <span *ngIf="! userDetails.userConfig.showPhone"><i class="fa fa-times"></i></span>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            <div class="level">
+              <div class="level-left">
+                <div *ngIf="userDetails.userConfig.showPhone">
+                  <label for="phone">Phone:</label><span id="phone"> {{ userDetails.phone }}</span><br>
+                </div>
+                <div *ngIf="userDetails.isVetEnabled">
+                  <label for="address">Address:</label><span id="address"> {{ userDetails.address }}</span><br>
+                </div>
+                <div *ngIf="userDetails.isVetEnabled">
+                  <label for="resume">Resume:</label><span id="resume"> {{ userDetails.resume }}</span><br>
+                </div>
+              </div>
+              <a routerLink="/user-config" [state]="{ userId: userDetails.id, userConfig: userDetails.userConfig }" class="button is-primary level-right">Edit</a>
             </div>
           </div>
         </div>
