@@ -67,4 +67,9 @@ export class LoginService {
     return (role === "ROLE_VET_USER");
   }
 
+  isAdmin(): boolean {
+    let role = this.getRole()
+    return (role === "ROLE_ADMIN");
+  }
+
 }

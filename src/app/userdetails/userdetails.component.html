@@ -69,33 +69,35 @@
     </div>
   </div>
 
-  <p class="title is-4 has-text-centered">User's Pets</p>
+  <div *ngIf="isOwner()">
+    <p class="title is-4 has-text-centered">User's Pets</p>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th title="Image">Image</th>
-        <th title="Name">Name</th>
-        <th title="Born date">Born date</th>
-        <th title="Species">Species</th>
-        <th title="Race">Race</th>
-        <th title="Sex">Sex</th>
-        <th title="Color">Color</th>
-        <th title="Observations">Observations</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pet of userDetails.ownersPets">
-        <td><img src="{{ imagesHost }}{{ pet.images[0].path }}" alt="pet image" class="petImage"></td>
-        <td><a [routerLink]="[ '/pets', pet.id ]">{{ pet.name }}</a></td>
-        <td>{{ pet.bornDate }}</td>
-        <td>{{ pet.species }}</td>
-        <td>{{ pet.race }}</td>
-        <td>{{ pet.sex }}</td>
-        <td>{{ pet.color }}</td>
-        <td>{{ pet.observations }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th title="Image">Image</th>
+          <th title="Name">Name</th>
+          <th title="Born date">Born date</th>
+          <th title="Species">Species</th>
+          <th title="Race">Race</th>
+          <th title="Sex">Sex</th>
+          <th title="Color">Color</th>
+          <th title="Observations">Observations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of userDetails.ownersPets">
+          <td><img src="{{ imagesHost }}{{ pet.images[0].path }}" alt="pet image" class="petImage"></td>
+          <td><a [routerLink]="[ '/pets', pet.id ]">{{ pet.name }}</a></td>
+          <td>{{ pet.bornDate }}</td>
+          <td>{{ pet.species }}</td>
+          <td>{{ pet.race }}</td>
+          <td>{{ pet.sex }}</td>
+          <td>{{ pet.color }}</td>
+          <td>{{ pet.observations }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
