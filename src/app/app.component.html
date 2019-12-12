@@ -32,6 +32,7 @@
           </div>
           <div *ngIf="isLogged()">
             <a *ngIf="isOwner()" routerLink="/pets/create" class="button is-primary">Add Pet</a>
+            <a *ngIf="isAdmin()" routerLink="/vets" class="button is-primary">Vets</a>
             <a (click)="goToMyProfile()" class="button is-primary">My Profile</a>
             <a href="#" (click)="logout()" class="button is-primary">Logout</a>
           </div>

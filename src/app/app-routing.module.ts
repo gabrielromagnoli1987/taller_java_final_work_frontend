@@ -9,6 +9,7 @@ import { UserDetailsComponent } from './userdetails/userdetails.component';
 import { PetCreateComponent } from './pet-create/pet-create.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { UserConfigComponent } from './user-config/user-config.component';
+import { VetsComponent } from './vets/vets.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailsComponent, canActivate: [AuthGuard] },
   { path: 'pets/create', component: PetCreateComponent, canActivate: [AuthGuard] },
   { path: 'pets/:id', component: PetDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'vets', component: VetsComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 

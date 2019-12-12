@@ -41,4 +41,8 @@ export class AppComponent {
     return this.loginService.isVet();
   }
 
+  isAdmin(): boolean {
+    return this.loginService.isAdmin();
+  }
+
  }

@@ -15,6 +15,7 @@ import { UserConfigComponent } from './user-config/user-config.component';
 
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
+import { VetsComponent } from './vets/vets.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ErrorInterceptor } from './interceptors/error-interceptor';
     UserDetailsComponent,
     PetDetailsComponent,
     PetCreateComponent,
-    UserConfigComponent
+    UserConfigComponent,
+    VetsComponent
   ],
   imports: [
     BrowserModule,

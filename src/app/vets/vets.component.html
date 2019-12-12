@@ -1,0 +1,52 @@
+<div *ngIf="pageableVets">
+  <p class="title is-4 has-text-centered">Vets</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th title="Vet Name">Vet Name</th>
+        <th title="Vet Lastname">Vet Lastname</th>
+        <th title="Vet Email">Vet Email</th>
+        <th title="Vet Phone">Vet Phone</th>
+        <th title="Vet Address">Pet Addrress</th>
+        <th title="Vet Resume">Vet Resume</th>
+        <th title="Is vet enabled?">Is Vet Enabled?</th>
+        <th title="Delete vet">Delete vet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vet of pageableVets.content">
+        <td><a [routerLink]="[ '/users', vet.id ]">{{ vet.firstName }}</a></td>
+        <td>{{ vet.lastName }}</td>
+        <td>{{ vet.email }}</td>
+        <td>{{ vet.phone }}</td>
+        <td>{{ vet.address }}</td>
+        <td>{{ vet.resume }}</td>
+        <td>
+          <form #vetForm="ngForm" (ngSubmit)="onSubmit(vetForm, vet.id)">
+            <input [(ngModel)]="vet.isVetEnabled" type="radio" name="isVetEnabled" id="isVetEnabledTrue" [value]=true required>True
+            <input [(ngModel)]="vet.isVetEnabled" type="radio" name="isVetEnabled" id="isVetEnabledFalse" [value]=false required>False
+            <button type="submit" [disabled]="!vetForm.form.valid" class="button is-primary">Save changes</button>
+          </form>
+        </td>
+        <td><button (click)="openModal(vet.id)" class="button is-danger">Delete vet</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="deleteModalIsActive" class="modal is-active">
+  <div (click)="closeModal()" class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Delete vet?</p>
+      <button (click)="closeModal()" class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      The Vet will be deleted. Do you want to proceed?
+    </section>
+    <footer class="modal-card-foot">
+      <button (click)="deleteVet()" class="button is-danger">Delete</button>
+      <button (click)="closeModal()" class="button">Cancel</button>
+    </footer>
+  </div>
+</div>

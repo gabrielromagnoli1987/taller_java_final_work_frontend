@@ -22,8 +22,20 @@ export class UserService {
     return this.httpClient.get<[]>(environment.api + '/users/vets-active');
   }
 
+  getVets() {
+    return this.httpClient.get<[]>(environment.api + '/users/vets');
+  }
+
   updateUserConfig(userId, userConfig) {
     return this.httpClient.put(environment.api + `/users/${userId}/update-config`, userConfig);
+  }
+
+  deleteUser(userId) {
+    return this.httpClient.delete(environment.api + `/users/${userId}`);
+  }
+
+  enableVetUser(userId, isEnabledObject) {
+    return this.httpClient.patch(environment.api + `/users/${userId}/enable-vet`, isEnabledObject);
   }
 
 }

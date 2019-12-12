@@ -11,8 +11,6 @@ export class SignupService {
   constructor(private httpClient: HttpClient) { }
 
   signup(signupRequestData: SignupRequestData) {
-    this.httpClient.post(environment.api + '/auth/sign-up', signupRequestData).subscribe((data) => {
-      console.log(data)
-    });
+    return this.httpClient.post(environment.api + '/auth/sign-up', signupRequestData);
   }
 }
