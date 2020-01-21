@@ -1,0 +1,18 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Add reproductive history</p>
+  <div class="level">
+    <div class="level-item">
+      <form #addReproductiveHistoryForm="ngForm" (ngSubmit)="onSubmit(addReproductiveHistoryForm)">
+        <div class="field">
+          <label for="datetime" class="label">Datetime</label>
+          <input ngModel type="datetime-local" name="datetime" id="datetime" required class="input">
+        </div>
+        <div class="field">
+          <label for="numberOfpuppies" class="label">Number of puppies</label>
+          <input ngModel type="number" name="numberOfpuppies" id="numberOfpuppies" required class="input">
+        </div>
+        <button type="submit" [disabled]="!addReproductiveHistoryForm.form.valid" class="button is-primary">Add reproductive history</button>
+      </form>
+    </div>
+  </div>
+</div>

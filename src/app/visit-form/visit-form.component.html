@@ -1,0 +1,42 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Add visit</p>
+  <div class="level">
+    <div class="level-item">
+      <form #addVisitForm="ngForm" (ngSubmit)="onSubmit(addVisitForm)">
+        <div class="field">
+          <label for="datetime" class="label">Datetime</label>
+          <input ngModel type="datetime-local" name="datetime" id="datetime" required class="input">
+        </div>
+        <div class="field">
+          <label for="weight" class="label">Weight</label>
+          <input ngModel type="number" name="weight" id="weight" required class="input">
+        </div>
+        <div class="field">
+          <label for="reason" class="label">Reason</label>
+          <input ngModel type="text" name="reason" id="reason" required class="input">
+        </div>
+        <div class="field">
+          <label for="diagnosis" class="label">Diagnosis</label>
+          <input ngModel type="text" name="diagnosis" id="diagnosis" required class="input">
+        </div>
+        <div class="field">
+          <label for="indications" class="label">Indications</label>
+          <input ngModel type="text" name="indications" id="indications" required class="input">
+        </div>
+        <div class="field">
+          <label for="vet" class="label">Select the Vet</label>
+          <div class="select" id="vet">
+            <select *ngIf="pageableVets" ngModel name="vet" required>
+              <option *ngFor="let vet of pageableVets.content" [value]="vet.id">
+                {{vet.firstName}} {{vet.lastName}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" [disabled]="!addVisitForm.form.valid" class="button is-primary">Add visit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

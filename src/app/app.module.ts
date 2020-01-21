@@ -16,6 +16,12 @@ import { UserConfigComponent } from './user-config/user-config.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { VetsComponent } from './vets/vets.component';
+import { VaccineFormComponent } from './vaccine-form/vaccine-form.component';
+import { SurgerieFormComponent } from './surgerie-form/surgerie-form.component';
+import { DiseaseFormComponent } from './disease-form/disease-form.component';
+import { ReproductiveHistoryFormComponent } from './reproductive-history-form/reproductive-history-form.component';
+import { DewormingFormComponent } from './deworming-form/deworming-form.component';
+import { VisitFormComponent } from './visit-form/visit-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { VetsComponent } from './vets/vets.component';
     PetDetailsComponent,
     PetCreateComponent,
     UserConfigComponent,
-    VetsComponent
+    VetsComponent,
+    VaccineFormComponent,
+    SurgerieFormComponent,
+    DiseaseFormComponent,
+    ReproductiveHistoryFormComponent,
+    DewormingFormComponent,
+    VisitFormComponent
   ],
   imports: [
     BrowserModule,

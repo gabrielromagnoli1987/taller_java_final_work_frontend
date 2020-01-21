@@ -1,0 +1,23 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Add deworming</p>
+  <div class="level">
+    <div class="level-item">
+      <form #addDewormingForm="ngForm" (ngSubmit)="onSubmit(addDewormingForm)">
+        <div class="field">
+          <label for="datetime" class="label">Datetime</label>
+          <input ngModel type="datetime-local" name="datetime" id="datetime" required class="input">
+        </div>
+        <div class="field">
+          <label for="drug" class="label">Drug</label>
+          <input ngModel type="text" name="drug" id="drug" required class="input">
+        </div>
+        <div class="field">
+          <label for="result" class="label">Result</label>
+          <input ngModel type="text" name="result" id="result" required class="input">
+        </div>
+        <button type="submit" [disabled]="!addDewormingForm.form.valid" class="button is-primary">Add deworming</button>
+      </form>
+    </div>
+  </div>
+</div>
+

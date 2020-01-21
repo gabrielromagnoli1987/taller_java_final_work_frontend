@@ -1,0 +1,19 @@
+<div class="container">
+  <p class="title is-4 has-text-centered">Add disease</p>
+  <div class="level">
+    <div class="level-item">
+      <form #addDiseaseForm="ngForm" (ngSubmit)="onSubmit(addDiseaseForm)">
+        <div class="field">
+          <label for="description" class="label">Description</label>
+          <input ngModel type="text" name="description" id="description" required class="input">
+        </div>
+        <div class="field">
+          <label for="datetime" class="label">Datetime</label>
+          <input ngModel type="datetime-local" name="datetime" id="datetime" required class="input">
+        </div>
+        <button type="submit" [disabled]="!addDiseaseForm.form.valid" class="button is-primary">Add disease</button>
+      </form>
+    </div>
+  </div>
+</div>
+

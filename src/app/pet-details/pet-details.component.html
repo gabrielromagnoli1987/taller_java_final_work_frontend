@@ -61,15 +61,19 @@
           <tr>
             <th title="Description">Description</th>
             <th title="Datetime">Datetime</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let vaccine of pet.vaccines">
             <td>{{ vaccine.description }}</td>
             <td>{{ vaccine.localDateTime }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-vaccine' ]" class="button is-primary">Add Vaccine</a>
 
       <p class="title is-5 has-text-centered">Surgeries</p>
       <table class="table">
@@ -77,15 +81,19 @@
           <tr>
             <th title="Description">Description</th>
             <th title="Datetime">Datetime</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let surgerie of pet.surgeries">
             <td>{{ surgerie.description }}</td>
             <td>{{ surgerie.localDateTime }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-surgerie' ]" class="button is-primary">Add Surgerie</a>
 
       <p class="title is-5 has-text-centered">Diseases</p>
       <table class="table">
@@ -93,15 +101,19 @@
           <tr>
             <th title="Description">Description</th>
             <th title="Datetime">Datetime</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let disease of pet.diseases">
             <td>{{ disease.description }}</td>
             <td>{{ disease.localDateTime }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-disease' ]" class="button is-primary">Add Disease</a>
 
       <p class="title is-5 has-text-centered">Reproductive History</p>
       <table class="table">
@@ -109,15 +121,19 @@
           <tr>
             <th title="Number of puppies">Number of puppies</th>
             <th title="Datetime">Datetime</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let record of pet.reproductiveHistory">
             <td>{{ record.numberOfpuppies }}</td>
             <td>{{ record.localDateTime }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-reproductive-history' ]" class="button is-primary">Add Reproductive History</a>
 
       <p class="title is-5 has-text-centered">Deworming</p>
       <table class="table">
@@ -126,6 +142,7 @@
             <th title="Drug">Drug</th>
             <th title="Result">Result</th>
             <th title="Datetime">Datetime</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -133,9 +150,12 @@
             <td>{{ deworm.drug }}</td>
             <td>{{ deworm.result }}</td>
             <td>{{ deworm.localDateTime }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-deworming' ]" class="button is-primary">Add Deworming</a>
 
       <p class="title is-5 has-text-centered">Visits</p>
       <table class="table">
@@ -146,6 +166,7 @@
             <th title="Diagnosis">Diagnosis</th>
             <th title="Indications">Indications</th>
             <th title="Weight">Weight</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -155,9 +176,13 @@
             <td>{{ visit.diagnosis }}</td>
             <td>{{ visit.indications }}</td>
             <td>{{ visit.weight }}</td>
+            <td><button class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
+
+      <a [routerLink]="[ '/pets', pet.id, 'add-visit' ]" class="button is-primary">Add Visit</a>
+
     </div>
   </div>
 
