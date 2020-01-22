@@ -68,7 +68,7 @@
           <tr *ngFor="let vaccine of pet.vaccines">
             <td>{{ vaccine.description }}</td>
             <td>{{ vaccine.localDateTime }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(vaccine.id, 'vaccines')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -88,7 +88,7 @@
           <tr *ngFor="let surgerie of pet.surgeries">
             <td>{{ surgerie.description }}</td>
             <td>{{ surgerie.localDateTime }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(surgerie.id, 'surgeries')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -108,7 +108,7 @@
           <tr *ngFor="let disease of pet.diseases">
             <td>{{ disease.description }}</td>
             <td>{{ disease.localDateTime }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(disease.id, 'diseases')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -128,7 +128,7 @@
           <tr *ngFor="let record of pet.reproductiveHistory">
             <td>{{ record.numberOfpuppies }}</td>
             <td>{{ record.localDateTime }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(record.id, 'reproductions')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -150,7 +150,7 @@
             <td>{{ deworm.drug }}</td>
             <td>{{ deworm.result }}</td>
             <td>{{ deworm.localDateTime }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(deworm.id, 'deworms')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -176,7 +176,7 @@
             <td>{{ visit.diagnosis }}</td>
             <td>{{ visit.indications }}</td>
             <td>{{ visit.weight }}</td>
-            <td><button class="button is-danger">Delete</button></td>
+            <td><button (click)="openModal(visit.id, 'visits')" class="button is-danger">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -186,4 +186,21 @@
     </div>
   </div>
 
+</div>
+
+<div *ngIf="deleteModalIsActive" class="modal is-active">
+  <div (click)="closeModal()" class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Delete?</p>
+      <button (click)="closeModal()" class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      Do you want to proceed?
+    </section>
+    <footer class="modal-card-foot">
+      <button (click)="delete()" class="button is-danger">Delete</button>
+      <button (click)="closeModal()" class="button">Cancel</button>
+    </footer>
+  </div>
 </div>

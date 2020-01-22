@@ -54,5 +54,30 @@ export class PetService {
   addVisit(petId: number, visitRequestData: VisitRequestData) {
     return this.httpClient.post(environment.api + `/pets/${petId}/visits`, visitRequestData);
   }
+
+  deleteVaccine(petId: number, vaccineId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/vaccines/${vaccineId}`)
+  }
+
+  deleteSurgerie(petId: number, surgerieId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/surgeries/${surgerieId}`)
+  }
+
+  deleteDisease(petId: number, diseaseId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/diseases/${diseaseId}`)
+  }
+
+  deleteReproductiveHistoryRecord(petId: number, recordId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/reproductions/${recordId}`)
+  }
+
+  deleteDeworming(petId: number, dewormId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/deworming/${dewormId}`)
+  }
+
+  deleteVisit(petId: number, visitId: number) {
+    return this.httpClient.delete(environment.api + `/pets/${petId}/visits/${visitId}`)
+  }
+
 }
 
